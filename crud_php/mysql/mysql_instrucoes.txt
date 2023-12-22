@@ -1,0 +1,25 @@
+//autor: Júlio Perozzi Dias
+//criando database e usuario do programa
+CREATE USER 'programa'@'localhost' IDENTIFIED BY '486502';
+CREATE DATABASE funcionarios;
+USE funcionarios;
+
+//criando tabela sql
+CREATE TABLE cadastros(
+id_funcionario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(64) NOT NULL,
+data DATE NOT NULL,
+email VARCHAR(64) NOT NULL,
+profissao VARCHAR(64) NOT NULL
+telefone VARCHAR(32) NOT NULL,
+celular VARCHAR(32) NOT NULL,
+whatsapp TINYINT(1),
+emailnotific TINYINT(1),
+SMSnotific TINYINT(1)
+);
+
+//concedendo acesso da database ao usuário do programa
+GRANT ALL PRIVLIEGES ON funcionarios to 'programa'@'localhost' IDENTIFIED BY '486502';
+GRANT ALL PRIVLIEGES ON cadastros to 'programa'@'localhost' IDENTIFIED BY '486502';
+//para acessar a database manualmente, basta usar o comando:
+//mysql -u programa -p486502 funcionarios
